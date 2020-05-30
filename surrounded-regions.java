@@ -62,4 +62,43 @@ to mark them connected with boundaries.
         dfs(row, col+1, board);
         dfs(row, col-1, board);
     }
+    
+    // Simpler
+    // tc -> m*n, sc-> m*n
+    public void solve(char[][] board) {
+        if(board==null || board.length==0) return;
+        int m = board.length, n = board[0].length;
+        
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(board[i][j]=='O'){
+                    if(i==0 || j==0 || i==m-1 || j==n-1){
+                        dfs(board, i, j);
+                    }
+                }
+            }
+        }
+        
+        
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(board[i][j]=='*'){
+                    board[i][j]='O';
+                }else if(board[i][j]=='O'){
+                    board[i][j] = 'X';
+                }
+            }
+        }
+    }
+    
+    private void dfs(char[][] board, int row, int col){
+        if(row<0 || row>board.length-1 || col<0 || col>board[0].length-1 
+          || board[row][col]!='O')
+            return;
+        board[row][col] = '*';
+        dfs(board, row+1, col);
+        dfs(board, row-1, col);
+        dfs(board, row, col+1);
+        dfs(board, row, col-1);
+    }
 }
