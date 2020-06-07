@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/coin-change-2/
-class Solution {
+class coin-change-2 {
     // tc -> S(amount)*n(coins length), sc-> S(amount)*n(coins length)
     public int change(int amount, int[] coins) {
         return getCoinsChange(amount, coins, new Integer[coins.length+1][amount+1], 0);
