@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/matchsticks-to-square/
+// Same as https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
 class matchsticks-to-square {
     // tc -> 4^n, sc-> n
     public boolean makesquare(int[] nums) {        
