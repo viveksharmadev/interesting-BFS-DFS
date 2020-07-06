@@ -34,4 +34,27 @@ class minimum-knight-moves {
         }
         return -1;
     }
+    
+    // tc -> x*y, sc-> x*y
+    public int minKnightMoves(int x, int y) {
+        x = Math.abs(x);
+        y = Math.abs(y);
+        return getMinKnightMoves(x, y, new HashMap<String, Integer>());
+    }
+    
+    private int getMinKnightMoves(int x, int y, Map<String, Integer> cache){        
+        if(x+y == 0) return 0;
+        else if(x+y == 2) return 2;
+        
+        String key = x + " " + y;
+        
+        if(cache.containsKey(key)) 
+            return cache.get(key);
+            
+        int min = Math.min(getMinKnightMoves(Math.abs(x-1), Math.abs(y-2), cache),
+                           getMinKnightMoves(Math.abs(x-2), Math.abs(y-1), cache)) + 1;
+        
+        cache.put(key, min);
+        return cache.get(key);
+    }
 }
