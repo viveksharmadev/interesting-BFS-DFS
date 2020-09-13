@@ -8,7 +8,7 @@
  */
 
 class web-crawler {
-    // tc -> n, sc-> n
+    // tc -> m(urls)*n(url because of contains method), sc-> n(url max length)
     public List<String> crawl(String startUrl, HtmlParser htmlParser) {
         Queue<String> q = new LinkedList<>();
         q.offer(startUrl);
