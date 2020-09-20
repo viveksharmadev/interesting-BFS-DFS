@@ -1,5 +1,10 @@
 // https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
 // Same as https://leetcode.com/problems/matchsticks-to-square/
+/* naively we will make O(k!) calls to search, 
+       then an additional O(k^(N-k)) 
+       calls after every element of groups is nonzero.
+       tc-> k!*k^(n-k), sc-> n
+    */
 class partition-to-k-equal-sum-subsets {
     public boolean canPartitionKSubsets(int[] nums, int k) {
         if(nums==null || nums.length==0){
