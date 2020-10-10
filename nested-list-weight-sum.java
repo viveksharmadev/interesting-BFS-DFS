@@ -14,6 +14,32 @@ class Solution {
        return res;
    }
 }
+
+// Another Recursive: May be easier to understand
+class Solution {
+    // tc -> m*n, sc-> m
+    public int depthSum(List<NestedInteger> nestedList) {
+        int[] sum = new int[1];
+        
+        depthSum(nestedList, sum, 1);   
+        
+        return sum[0];
+    }
+    
+    private void depthSum(List<NestedInteger> list, int[] sum, int depth){
+        
+        for(NestedInteger ni : list){
+            
+            if(ni.isInteger()){
+                sum[0] += depth * ni.getInteger();
+            }else{
+                depthSum(ni.getList(), sum, depth+1);
+            }
+            
+        }
+        
+    }
+}
  
  //BFS:
  
