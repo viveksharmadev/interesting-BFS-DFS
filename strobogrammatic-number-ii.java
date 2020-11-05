@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/strobogrammatic-number-ii/
 class Solution {
-    // tc -> I think -> 5^n(because adding 5 times in for loop), sc-> n
+    // tc -> I think -> 5^n/2(because adding 5 times in for loop, n/2 because of n-=2 in loop), sc-> 5^n/2
     public List<String> findStrobogrammatic(int n) {
         // Empty list for even number and add middle number for odd length
         List<String> result 
